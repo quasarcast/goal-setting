@@ -1,0 +1,8 @@
+{
+  "@vueauth/auth": {
+    "authProvider": {
+      "identifier": "strapi",
+      "packageName": "@vueauth/strapi"
+    }
+  }
+}
