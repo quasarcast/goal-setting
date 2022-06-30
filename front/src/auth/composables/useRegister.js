@@ -14,7 +14,7 @@ export default () => {
     hasErrors,
     validationErrors,
     hasValidationErrors,
-    register
+    register,
   } = useIdentityPasswordRegister()
 
   async function onRegisterClicked () {
@@ -38,6 +38,6 @@ export default () => {
     register,
     router,
     emailConfirm,
-    registered
+    registered,
   }
 }

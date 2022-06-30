@@ -13,7 +13,7 @@ import {
   useAuthenticatedRedirector,
   useFetchUser,
   usePasswordResetViaEmail,
-  useUpdatePassword
+  useUpdatePassword,
 } from '@vueauth/strapi'
 
 export default boot(({ app }) => {
@@ -26,7 +26,7 @@ export default boot(({ app }) => {
         features: {
           'identityPassword:register': {
             composable: useIdentityPasswordRegister,
-            config: { withUsername: false }
+            config: { withUsername: false },
           },
           'identityPassword:login': useIdentityPasswordLogin,
           'identityPassword:logout': useIdentityPasswordLogout,
@@ -37,9 +37,9 @@ export default boot(({ app }) => {
           authState: useAuthState,
           authRedirector: useAuthRedirector,
           passwordResetViaEmail: usePasswordResetViaEmail,
-          updatePassword: useUpdatePassword
-        }
-      }
-    }
+          updatePassword: useUpdatePassword,
+        },
+      },
+    },
   })
 })

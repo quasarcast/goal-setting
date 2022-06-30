@@ -15,7 +15,7 @@ const {
   validationErrors,
   errors,
   resetErrors,
-  hasErrors
+  hasErrors,
 } = usePasswordReset()
 
 async function onResetClicked () {

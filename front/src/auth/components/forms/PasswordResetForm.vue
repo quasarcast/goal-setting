@@ -4,29 +4,29 @@ import { QInput, QForm } from 'quasar'
 defineProps({
   email: {
     required: true,
-    type: String
+    type: String,
   },
   password: {
     required: true,
-    type: String
+    type: String,
   },
   passwordConfirmation: {
     required: true,
-    type: String
+    type: String,
   },
   validationErrors: {
     required: false,
     type: Object,
     default () {
       return {}
-    }
-  }
+    },
+  },
 })
 
 const emit = defineEmits([
   'update:email',
   'update:password',
-  'update:passwordConfirmation'
+  'update:passwordConfirmation',
 ])
 </script>
 

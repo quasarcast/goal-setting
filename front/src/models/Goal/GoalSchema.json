@@ -1,0 +1,16 @@
+{
+  "pascalName": "Goal",
+  "color": "indigo",
+  "fields": {
+    "goal": {
+      "label": "Goal",
+      "type": "String",
+      "componentType": "shortText"
+    },
+    "description": {
+      "label": "Description",
+      "type": "String",
+      "componentType": "longText"
+    }
+  }
+}

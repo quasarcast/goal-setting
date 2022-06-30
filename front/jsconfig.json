@@ -3,11 +3,14 @@
     "jsx": "preserve",
     "baseUrl": ".",
     "paths": {
+      "models/*": [
+        "src/models/*"
+      ],
+      "api/*": [
+        "src/shared/api/*"
+      ],
       "components/*": [
         "src/components/*"
-      ],
-      "composables/*": [
-        "src/composables/*"
       ],
       "layouts/*": [
         "src/layouts/*"

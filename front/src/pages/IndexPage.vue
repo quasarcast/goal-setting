@@ -1,27 +1,35 @@
-<template>
-  <q-page class="flex flex-center">
-    <img
-      alt="Quasar logo"
-      src="~assets/quasar-logo-vertical.svg"
-      style="width: 200px; height: 200px"
-    >
-  </q-page>
-</template>
-
 <script setup>
-import useCreateResource from 'composables/models/core/useCreateResource'
+import { useUpdateResource } from 'api'
+import { GoalSchema } from 'models/Goal'
+import SchemaForm from 'components/base/SchemaForm/SchemaForm.vue'
 
-const resourceCreator = useCreateResource({
-  pascalName: 'Goal',
-  fields: {
-    goal: {
-      type: 'String'
-    },
-    description: {
-      type: 'String'
-    }
-  }
+const goal = {
+  id: 2,
+  attributes: {
+    goal: 'gym twice a week',
+    description: 'sdfgsd',
+  },
+}
+
+const goalUpdater = useUpdateResource(GoalSchema, {
+  id: goal.id,
+  form: goal.attributes,
 })
 
-console.log(resourceCreator.query)
+goalUpdater.form.value.goal = 'geep'
+goalUpdater.id.value = 3
 </script>
+
+<template>
+  <q-page class="column flex-center">
+    <SchemaForm
+      v-model="goalUpdater.form.value"
+      :schema="GoalSchema"
+    />
+
+    <q-btn
+      label="update"
+      @click="goalUpdater.update()"
+    />
+  </q-page>
+</template>

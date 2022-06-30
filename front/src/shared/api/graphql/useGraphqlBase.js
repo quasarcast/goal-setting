@@ -12,10 +12,11 @@ const useGraphqlBase = createFetch({
       context.options.headers = {
         ...context.options.headers,
         Authorization: `Bearer ${token}`,
-        'Content-Type': 'application/json'
+        'Content-Type': 'application/json',
       }
-    }
-  }
+    },
+  },
 })
 
 export default useGraphqlBase
+export { useGraphqlBase }

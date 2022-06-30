@@ -4,8 +4,8 @@ import { useVModel } from '@vueuse/core'
 const props = defineProps({
   modelValue: {
     required: true,
-    type: Object
-  }
+    type: Object,
+  },
 })
 
 const emit = defineEmits(['update:modelValue'])

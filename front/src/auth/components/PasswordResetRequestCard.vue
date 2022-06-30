@@ -13,7 +13,7 @@ const {
   validationErrors,
   errors,
   hasErrors,
-  resetErrors
+  resetErrors,
 } = usePasswordReset()
 
 const hasRequestedReset = ref(false)

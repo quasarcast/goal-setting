@@ -15,6 +15,7 @@
     "@vueauth/strapi": "^1.0.0-alpha.6",
     "@vueuse/core": "^8.5.0",
     "core-js": "^3.6.5",
+    "json-to-graphql-query": "^2.2.4",
     "lodash-es": "^4.17.21",
     "quasar": "^2.6.0",
     "vue": "^3.0.0",

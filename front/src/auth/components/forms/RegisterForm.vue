@@ -6,31 +6,31 @@ const { withUsername } = getConfig('identityPassword:register')
 defineProps({
   email: {
     required: true,
-    type: String
+    type: String,
   },
   password: {
     required: true,
-    type: String
+    type: String,
   },
   passwordConfirmation: {
     required: true,
-    type: String
+    type: String,
   },
   name: {
     required: false,
     type: String,
-    default: null
+    default: null,
   },
   username: {
     required: false,
     type: String,
-    default: null
+    default: null,
   },
   validationErrors: {
     required: false,
     type: Object,
-    default () { return {} }
-  }
+    default () { return {} },
+  },
 })
 
 const emit = defineEmits([
@@ -38,7 +38,7 @@ const emit = defineEmits([
   'update:password',
   'update:passwordConfirmation',
   'update:name',
-  'update:username'
+  'update:username',
 ])
 </script>
 

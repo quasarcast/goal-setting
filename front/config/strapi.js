@@ -33,6 +33,6 @@ export default {
     getUser: 'api/users/me',
     resetPassword: 'api/auth/reset-password',
     forgotPassword: 'api/auth/forgot-password',
-    changePassword: 'api/update-password'
-  }
+    changePassword: 'api/update-password',
+  },
 }

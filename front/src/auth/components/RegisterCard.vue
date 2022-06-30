@@ -11,7 +11,7 @@ const {
   onRegisterClicked,
   validationErrors,
   hasValidationErrors,
-  registered
+  registered,
 } = useRegister()
 
 </script>

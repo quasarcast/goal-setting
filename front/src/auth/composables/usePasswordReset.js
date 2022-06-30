@@ -11,7 +11,7 @@ export default () => {
     validationErrors,
     errors,
     resetErrors,
-    hasErrors
+    hasErrors,
   } = usePasswordResetViaEmail()
 
   async function onResetClicked () {
@@ -29,6 +29,6 @@ export default () => {
     validationErrors,
     errors,
     hasErrors,
-    resetErrors
+    resetErrors,
   }
 }

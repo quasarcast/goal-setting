@@ -26,12 +26,12 @@ module.exports = configure(function (ctx) {
     // --> boot files are part of "main.js"
     // https://v2.quasar.dev/quasar-cli-webpack/boot-files
     boot: [
-
+      'logger',
     ],
 
     // https://v2.quasar.dev/quasar-cli-webpack/quasar-config-js#Property%3A-css
     css: [
-      'app.scss'
+      'app.scss',
     ],
 
     // https://github.com/quasarframework/quasar/tree/dev/extras
@@ -45,7 +45,7 @@ module.exports = configure(function (ctx) {
       // 'roboto-font-latin-ext', // this or either 'roboto-font', NEVER both!
 
       'roboto-font', // optional, you are not bound to it
-      'material-icons' // optional, you are not bound to it
+      'material-icons', // optional, you are not bound to it
     ],
 
     // Full list of options: https://v2.quasar.dev/quasar-cli-webpack/quasar-config-js#Property%3A-build
@@ -77,8 +77,9 @@ module.exports = configure(function (ctx) {
           .use(ESLintPlugin, [{ extensions: ['js', 'vue'] }])
 
         chain.resolve.alias
-          .set('composables', path.resolve(__dirname, './src/composables'))
-      }
+          .set('api', path.resolve(__dirname, './src/shared/api'))
+          .set('models', path.resolve(__dirname, './src/models'))
+      },
 
     },
 
@@ -86,13 +87,13 @@ module.exports = configure(function (ctx) {
     devServer: {
       open: false,
       server: {
-        type: 'http'
+        type: 'http',
       },
       proxy: {
         '/api': 'http://localhost:1337',
-        '/graphql': 'http://localhost:1337'
+        '/graphql': 'http://localhost:1337',
       },
-      port: 8080
+      port: 8080,
     },
 
     // https://v2.quasar.dev/quasar-cli-webpack/quasar-config-js#Property%3A-framework
@@ -110,7 +111,7 @@ module.exports = configure(function (ctx) {
       // directives: [],
 
       // Quasar plugins
-      plugins: []
+      plugins: [],
     },
 
     // animations: 'all', // --- includes all animations
@@ -137,8 +138,8 @@ module.exports = configure(function (ctx) {
 
       middlewares: [
         ctx.prod ? 'compression' : '',
-        'render' // keep this as last one
-      ]
+        'render', // keep this as last one
+      ],
     },
 
     // https://v2.quasar.dev/quasar-cli-webpack/developing-pwa/configuring-pwa
@@ -166,30 +167,30 @@ module.exports = configure(function (ctx) {
           {
             src: 'icons/icon-128x128.png',
             sizes: '128x128',
-            type: 'image/png'
+            type: 'image/png',
           },
           {
             src: 'icons/icon-192x192.png',
             sizes: '192x192',
-            type: 'image/png'
+            type: 'image/png',
           },
           {
             src: 'icons/icon-256x256.png',
             sizes: '256x256',
-            type: 'image/png'
+            type: 'image/png',
           },
           {
             src: 'icons/icon-384x384.png',
             sizes: '384x384',
-            type: 'image/png'
+            type: 'image/png',
           },
           {
             src: 'icons/icon-512x512.png',
             sizes: '512x512',
-            type: 'image/png'
-          }
-        ]
-      }
+            type: 'image/png',
+          },
+        ],
+      },
     },
 
     // Full list of options: https://v2.quasar.dev/quasar-cli-webpack/developing-cordova-apps/configuring-cordova
@@ -199,7 +200,7 @@ module.exports = configure(function (ctx) {
 
     // Full list of options: https://v2.quasar.dev/quasar-cli-webpack/developing-capacitor-apps/configuring-capacitor
     capacitor: {
-      hideSplashscreen: true
+      hideSplashscreen: true,
     },
 
     // Full list of options: https://v2.quasar.dev/quasar-cli-webpack/developing-electron-apps/configuring-electron
@@ -222,7 +223,7 @@ module.exports = configure(function (ctx) {
       builder: {
         // https://www.electron.build/configuration/configuration
 
-        appId: 'goal-setting'
+        appId: 'goal-setting',
       },
 
       // "chain" is a webpack-chain object https://github.com/neutrinojs/webpack-chain
@@ -235,8 +236,8 @@ module.exports = configure(function (ctx) {
       chainWebpackPreload (chain) {
         chain.plugin('eslint-webpack-plugin')
           .use(ESLintPlugin, [{ extensions: ['js'] }])
-      }
+      },
 
-    }
+    },
   }
 })

@@ -71,9 +71,11 @@ module.exports = {
     'import/no-unresolved': 'off',
     'import/no-extraneous-dependencies': 'off',
 
+    'comma-dangle': ["error", 'always-multiline'],
     'no-unused-vars': 'warn',
 
     'vue/no-unused-vars': 'warn',
+    'vue/comma-dangle':  ["error", 'always-multiline'],
 
     'prefer-promise-reject-errors': 'off',
 

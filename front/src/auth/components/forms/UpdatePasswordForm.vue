@@ -5,34 +5,34 @@ defineProps({
   email: {
     required: false,
     type: String,
-    default: null
+    default: null,
   },
   currentPassword: {
     required: false,
     type: String,
-    default: null
+    default: null,
   },
   password: {
     required: true,
-    type: String
+    type: String,
   },
   passwordConfirmation: {
     required: false,
     type: String,
-    default: null
+    default: null,
   },
   validationErrors: {
     required: false,
     type: Object,
-    default () { return {} }
-  }
+    default () { return {} },
+  },
 })
 
 const emit = defineEmits([
   'update:email',
   'update:currentPassword',
   'update:password',
-  'update:passwordConfirmation'
+  'update:passwordConfirmation',
 ])
 </script>
 

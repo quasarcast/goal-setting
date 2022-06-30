@@ -1,7 +1,13 @@
-import { computed } from 'vue'
-import useGraphql from 'composables/graphql/useGraphql'
+import { computed, ref } from 'vue'
+import { useGraphql } from 'api'
 
-export default () => {
+export function useIndexGoals () {
+  const onFetchCallbacks = ref([])
+
+  const onFetch = (callback) => {
+    onFetchCallbacks.value.push(callback)
+  }
+
   const query = `query {
     goals(
       pagination: {
@@ -24,16 +30,22 @@ export default () => {
   const graphQl = useGraphql(query)
 
   const goals = computed(() => {
-    if (!graphQl.isFinished.value) {
+    if (!graphQl.data.value) {
       return []
     }
     return graphQl.data.value.data.goals.data
   })
 
+  async function fetch () {
+    await graphQl.execute()
+    onFetchCallbacks.value.forEach(callback => callback(goals.value))
+  }
+
   return {
-    fetch: graphQl.execute,
+    fetch,
     data: graphQl.data,
     indexing: graphQl.isFetching,
-    goals
+    goals,
+    onFetch,
   }
 }
